@@ -43,26 +43,10 @@ addCenter("football")
 addCenter("softball")
 addCenter("handball")
 
-const enterIntoCenter = (id, adultsEntering, childrenEntering) => centers[id].enter(adultsEntering, childrenEntering)
-const leaveCenter = (id, adultsLeaving, childrenLeaving) => centers[id].leave(adultsLeaving, childrenLeaving)
-const occupancy = (id) => centers[id].currentPresence
-const total = (id) => centers[id].totalTally
-const printCenter = (id) => console.log(centers[id])
-const changeEnteringRules = (id, conditions) => centers[id].enteringCheck = conditions
-
-printCenter(2)
-enterIntoCenter(2, 1, 1)
-console.log(occupancy(2))
-enterIntoCenter(2, 4, 1)
-console.log(occupancy(2))
-printCenter(2)
-// let's change some rules!
-const newRules = (adultsEntering, childrenEntering) => adultsEntering >= 2*childrenEntering ? true : false
-changeEnteringRules(2, newRules)
-printCenter(2)
-enterIntoCenter(2, 1, 1)
-console.log(occupancy(2))
-enterIntoCenter(2, 4, 1)
-console.log(occupancy(2))
-leaveCenter(2, 1, 1)
-console.log(occupancy(2))
+module.exports = {
+  centers,
+  enter: centers[0].enter,
+  leave: centers[0].leave,
+  occupancy: centers[0].currentPresence,
+  total: centers[0].totalTally
+}
